@@ -3,6 +3,12 @@ $(document).ready(function(){
 		$("#sub-heading").text("My Interviews");
 	});
 	$("#new-interview").click(function(){
-		$("#sub-heading").text("New Interview");
+		$("#sub-heading").text("New Interview");	
 	});
+	$("#side-bottom-bar > a").click(function() {    
+    var x = $(this).index();   
+    $("#table-interviews").toggle(x===0);
+    $("#content-footer").toggle(x===1);
+    
+  });
 });

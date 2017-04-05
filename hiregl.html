@@ -17,23 +17,58 @@
   </head>
 
   <body class="body">
-  
+    <!--sidebar-->
     <div id="sidebar">
       <div id="logo-base" class="mui-panel">        
         <img class="logo" src="images/hiregl_logo.png">       
       </div>      
       <div id="side-bottom-bar" class="side-bar-bottom">         
-          <a id="my-interviews" class="mui-btn mui-btn--large mui-btn--flat"><i id="inbx-arrow-down" class="mdi mdi-inbox-arrow-down">  </i>My Interviews  </a> 
-          <br>
-          <a id="new-interview" class="mui-btn mui-btn--large mui-btn--flat"><i id="plus" class="mdi mdi-plus">  </i>New Interview  </a>
+        <a id="my-interviews" class="mui-btn mui-btn--large mui-btn--flat"><i id="inbx-arrow-down" class="mdi mdi-inbox-arrow-down">  </i>My Interviews  </a>       
+        <a id="new-interview" class="mui-btn mui-btn--large mui-btn--flat"><i id="plus" class="mdi mdi-plus">  </i>New Interview  </a>
       </div>
     </div>
-
-    <div class="mui-container-fluid" id="content">    
+    <!--main content-->
+    <div class="mui-container-fluid" id="content">  
+      <div id="content-header"> 
         <p id="sub-heading"></p>
-        <div class="current-user"></div>        
-      
-      
+        <div id="user">
+        <div id="current-user"></div>
+        <div id="arrow"><a id="arrow-right" class="mdi mdi-arrow-right mdi-24px"></a> </div>      
+        </div>         
+      </div>
+      <div id="main-content">
+        <table id="table-interviews" class="mui-table mui-table--bordered">
+          <thead id="thead">
+            <tr>
+              <th id="table-photo"></th>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div id="content-footer">
+        <button id="close-interview" class="mui-btn mui-btn--small mui-btn--raised">Close Interview</button>
+        <button id="cancel" class="mui-btn mui-btn--small mui-btn--raised">Cancel</button>
+        <button id="save" class="mui-btn mui-btn--small mui-btn--raised">Save</button>        
+      </div>
+
+
+
     </div>
   
     
