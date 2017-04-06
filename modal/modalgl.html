@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.muicss.com/mui-0.9.9-rc2/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>    
+    <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="js/jquery.timepicker.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">      
+    <script type="text/javascript" src="hiregljs.js"></script> 
+    <script type="text/javascript" src="modaljs.js"></script>
+    <link rel="stylesheet" type="text/css" href="modalcss.css"/> 
+    <link href="css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />  
+  </head>
+  <body>
+    |<div id="modalWindow" class="modal">
+      <div class="leftModal"> 
+      <div class="header">
+        <h2>Candidate</h2>
+        </div>
+        <div class="candidateBox"> 
+        <div class="picture">
+        <img src="images/photo.png">
+        </div>
+        <div class="info">
+        <p id="candidateName">name surname</p>
+        <p id="candidatePosition">position</p> 
+        </div>
+        </div>
+        <div class="leftIcons">
+        <p id="phoneNumber"><i class="mdi mdi-phone"> </i>phone number</p><br>
+        <p id="emailAddress"><i class="mdi mdi-email"> </i>email address</p><br>
+        <p id="skype"><i class="mdi mdi-skype"> </i>skype</p><br>
+        </div>
+      </div>
+      <div class="rightModal">
+      <div class="header">
+        <h2>Interview</h2>
+        <div id="closeIcon" class="closeBox">
+         <span >&times;</span>
+      </div>
+        </div>
+        <div class="interviewBox">
+          <h3>Date</h3>
+          <p id="interviewDate">date</p>
+          <h3>Time</h3>
+          <p id="interviewTime">time</p>
+          <h3>Location</h3>
+          <p id="interviewLoc">location</p>
+          <h3>Room</h3>
+          <p id="interviewRoom">room</p>
+          <h3>Assign Person</h3>
+          <p id="interviewAssign">assign person</p>
+          <h3>Notes</h3>
+          <div class="textWindow">
+          text text text text text text text text text text text text text text text text text text text text text text text text text
+        </div>
+        </div>
+        <div class="rightBottomIcons">
+        <i id="deleteIcon" class="mdi mdi-delete"></i>
+        <i id="pencilIcon" class="mdi mdi-pencil"></i>
+      </div>
+      </div>
+
+    </div>
+  </body>
+  
+</html>

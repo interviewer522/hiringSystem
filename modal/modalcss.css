@@ -1,0 +1,266 @@
+body{
+	background-color: #BDBDBD;
+}
+
+h2{
+	font-size: 80%;
+	color: #757575;
+	margin-left: 10%;
+}
+
+h3{
+	font-size: 60%;
+	color: #757575;
+	line-height:15%;
+}
+
+img{
+	max-width: 80%;
+	max-height: 80%;
+	margin-left: 10%;
+}
+
+p{
+	margin-top: 5%;
+	line-height: 3%;
+	font-size: 10px;
+}
+
+i{
+	font-size: 10px;
+	margin-left: 5%;
+}
+
+.modal{
+	width: 100%;
+	height: 400px;
+	margin-top: 20%;
+	margin-bottom: 20%;
+	box-shadow: 5px black;
+}
+
+.rightModal, .leftModal{
+	width: 50%;
+	height: 400px;
+	float: left;
+	display: inline;
+}
+
+.leftModal{
+	background-color: white;
+	border-radius: 2px 0 0 2px;
+}
+
+.rightModal{
+	background-color: #EEEEEE;
+	border-radius: 0 2px 2px 0;
+}
+
+.candidateBox{
+  color: grey; 
+  position: absolute;
+  width: 50%;
+  height: 40%;
+  margin-top: 0;
+}
+
+.picture{
+  position: absolute;
+  margin-top: 5%; 
+  margin-left: 10%; 
+  width: 45%;
+  height: 65%;
+  max-width: 20%;
+  max-height: 60%;
+}
+
+.info{
+  position: absolute;
+  margin-top: 5%; 
+  margin right: 10%;
+  margin-left: 35%;
+  margin-bottom: 5%;
+  width: 60%;
+  height:100%;
+}
+
+.leftIcons{
+	color: #757575;
+	margin-left: 10%;
+	margin-top: 55%;
+	width: 80%;
+	height: 30%;
+}
+
+.interviewBox{
+	margin-left: 10%;
+	margin-top: -6%;
+	height:65%;
+}
+
+.textWindow{
+	width: 90%;
+	height: 20%;
+	font-size: 10px;
+	max-width: 30ch;
+	display: inline-block;
+}
+
+.rightBottomIcons{
+	margin-bottom: 0%;
+	margin-left: 70%;
+	cursor: pointer;
+}
+
+.closeBox{
+	margin-top: -40%;
+	margin-left: 80%;
+	width: 100%;
+	height: 10%;
+	cursor: pointer;
+}
+
+.header{
+	width: 100%;
+	height: 10%;
+	margin-top:30%;
+}
+
+@media only screen and (min-width: 450px){
+	h2{
+	font-size: 95%;
+	color: #757575;
+	margin-left: 10%;
+}
+
+h3{
+	font-size: 75%;
+	color: #757575;
+	line-height:15%;
+}
+
+p{
+	margin-top: 5%;
+	line-height: 3%;
+	font-size: 80%;
+}
+
+i{
+	font-size: 12px;
+	margin-left: 5%;
+}
+
+	.modal{
+    width:80%;
+	height: 300px;
+	margin-top: 15%;
+	margin-bottom: 5%;
+	margin-right: 25%;
+	margin-left: 10%;
+}
+
+.picture{ 
+  margin-top: -1%;  
+  width: 25%;
+  height: 65%;
+  max-width: 25%;
+}
+
+.info{
+  margin-top: 0%; 
+  margin-left: 40%;
+  width: 90%;
+}
+
+.leftIcons{
+	margin-top: 33%;
+	height: 25%;
+}
+
+.candidateBox{
+  width: 25%;
+  height: 10%;
+  margin-top:3%;
+}
+
+.interviewBox{
+	margin-top: 0%;
+}
+
+.rightBottomIcons{
+	margin-bottom: 10%;
+	margin-left:70% ;
+	margin-right: 2%;
+	width: 25%;
+	color:#757575;
+}
+
+.closeBox{
+	margin-top: -22%;
+	margin-left: 85%;
+}
+
+.header{
+	margin-top:10%;
+}
+
+.textWindow{
+	width: 90%;
+	height: 20%;
+	font-size: 80%;
+	max-width: 30ch;
+	display: inline-block;
+}
+
+@media only screen and (min-width: 768px){
+	.modal{
+	width:50%;
+	height: 300px;
+	margin-top: 10%;
+	margin-bottom: 5%;
+	margin-right: 10%;
+	margin-left: 25%;
+}
+
+.picture{ 
+  margin-top: 2%;  
+  width: 30%;
+  height: 75%;
+  max-width: 35%;
+}
+
+.info{
+  margin-top: 2%; 
+  margin-left: 30%;
+  width: 35%;
+}
+
+.leftIcons{
+	margin-top: 30%;
+	height: 25%;
+}
+.candidateBox{
+  width: 25%;
+  height: 10%;
+  margin-top: 1%;
+}
+
+.interviewBox{
+	margin-top: -0%;
+
+}
+
+.rightBottomIcons{
+	margin-bottom: 10%;
+	margin-left: 85%;
+}
+
+.closeBox{
+	margin-top: -20%;
+	margin-left: 90%;
+}
+
+.header{
+	margin-top:10%;
+}
+}
