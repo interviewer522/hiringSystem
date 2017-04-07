@@ -10,7 +10,8 @@
     <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="js/jquery.timepicker.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">      
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900" rel="stylesheet">      
     <script type="text/javascript" src="hiregljs.js"></script> 
     <link rel="stylesheet" type="text/css" href="hireglcss.css"/> 
     <link href="css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />  
@@ -23,23 +24,24 @@
         <img class="logo" src="images/hiregl_logo.png">       
       </div>      
       <div id="side-bottom-bar" class="side-bar-bottom">         
-        <a id="my-interviews" class="mui-btn mui-btn--large mui-btn--flat"><i id="inbx-arrow-down" class="mdi mdi-inbox-arrow-down">  </i>My Interviews  </a>       
+        <a id="my-interviews" class="mui-btn mui-btn--large mui-btn--flat"><i id="inbx-arrow-down" class="mdi mdi-inbox-arrow-down">  </i>My Interviews  </a>      
         <a id="new-interview" class="mui-btn mui-btn--large mui-btn--flat"><i id="plus" class="mdi mdi-plus">  </i>New Interview  </a>
       </div>
     </div>
     <!--main content-->
     <div class="mui-container-fluid" id="content">  
       <div id="content-header"> 
-        <p id="sub-heading"></p>
+        <div id="tab-heading"><label id="sub-heading"></label></div>
         <div id="user">
         <div id="current-user"></div>
-        <div id="arrow"><a id="arrow-right" class="mdi mdi-arrow-right mdi-24px"></a> </div>      
+        <div id="arrow"><i id="arrow-right" class="mdi mdi-arrow-right mdi-24px"></i> </div>      
         </div>         
       </div>
       <div id="main-content">
+      <!-- table new interview-->
         <table id="table-interviews" class="mui-table mui-table--bordered">
-          <thead id="thead">
-            <tr>
+          
+            <tr id="tr">
               <th id="table-photo"></th>
               <th>Name</th>
               <th>Phone</th>
@@ -47,7 +49,7 @@
               <th>Status</th>
               <th>Actions</th>
             </tr>
-          </thead>
+         
           <tbody>
             <tr>
               <td></td>
@@ -56,11 +58,95 @@
               <td></td>
               <td></td>
               <td></td>
-            </tr>
-            
+            </tr>            
           </tbody>
         </table>
+        <!-- form - new/edit interview-->
+        <div id="tab-candidate">
+        <form id="interview-form" class="mui-form">
+          <legend id="legend">CANDIDATE</legend>          
+          <div class="mui-divider"></div>
+          <div class="mui-textfield">
+            <input class="inputs" id="input-name" type="text" placeholder="Enter Name" required>
+            <label id="label">Name</label>
+            <label class="error-empty" id="error-incorrect"></label>
+          </div>
+          <div class="mui-textfield">
+            <input id="input-surname" type="text" placeholder="Enter Surname" required>
+            <label id="label">Surname</label>
+            <label class="error-empty" id="error-incorrect"></label>
+          </div>
+          <div class="mui-textfield">
+            <input id="input-phone" type="text" placeholder="Enter Phone" required>
+            <label id="label">Phone</label>
+            <label class="error-empty" id="error-incorrect"></label>
+          </div>
+          <div class="mui-textfield">
+            <input id="input-email" type="text" placeholder="Enter Email" required>
+            <label id="label">Email</label>
+            <label class="error-empty" id="error-incorrect"></label>
+          </div>
+          <div class="mui-textfield">
+            <input id="input-skype" type="text" placeholder="Enter Skype">
+            <label id="label">Skype</label>
+            <label class="error-empty" id="error-incorrect"></label> 
+          </div>
+          <div class="mui-select">
+            <select class="select">
+              <option value="">Choose position</option>              
+            </select>
+            <label id="label">Position</label>
+            <label class="error-empty" id="error-incorrect"></label>
+          </div>
+          <div class="mui-textfield mui-textfield--float-label">    
+          </div>
+          </form>
+          </div>
+          <div id="tab-interview">
+          <form id="interview-form" class="mui-form">
+          <legend id="legend">INTERVIEW</legend>          
+          <div class="mui-divider"></div>
+          <div class="mui-textfield">
+            <input type="text" placeholder="Enter date" required>
+            <label id="label">Date</label>
+            <label class="error-empty" id="error-incorrect"></label>
+          </div>
+          <div class="mui-textfield">
+            <input type="text" placeholder="Enter time" required>
+            <label id="label">Time</label>
+            <label class="error-empty" id="error-incorrect"></label>
+          </div>
+          <div class="mui-select">
+            <select class="select">
+              <option value="">Choose Location</option>                            
+            </select>
+            <label id="label">Location</label>
+            <label class="error-empty" id="error-incorrect"></label>
+          </div>
+          <div class="mui-select">
+            <select class="select">
+              <option value="">Choose room</option>                            
+            </select>
+            <label id="label">Room</label>
+            <label class="error-empty" id="error-incorrect"></label>
+          </div>
+          <div class="mui-select">
+            <select class="select">
+              <option  value="">Choose person</option>                            
+            </select>
+            <label id="label">Assigned Person</label>
+            <label class="error-empty" id="error-incorrect"></label>            
+          </div> 
+          <div id="notes" class="mui-textfield">
+            <textarea></textarea>
+            <label>Notes</label>
+          </div>           
+        </form>
+        <!-- end of interview form -->
+        </div> 
+      <!-- end of main content -->
       </div>
+      <!-- content footer -->
       <div id="content-footer">
         <button id="close-interview" class="mui-btn mui-btn--small mui-btn--raised">Close Interview</button>
         <button id="cancel" class="mui-btn mui-btn--small mui-btn--raised">Cancel</button>

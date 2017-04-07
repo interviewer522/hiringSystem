@@ -1,0 +1,111 @@
+
+#sidebar{
+  background-color: #F5F5F5;  
+  height: 150px;
+  width: 100%;    
+}
+
+#logo-base{
+  background-color: #D4E157;
+  padding: none;  
+  height: 55%;
+  padding: 0; 
+  margin-bottom:0px; 
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 18%; 
+    height: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#side-bottom-bar{
+  width: 100%;  
+}
+
+#my-interviews, #new-interview{
+  color: grey;  
+  background-color:#F5F5F5;  
+  width:inherit; 
+  text-align: center;
+  border-radius: 0;
+  position: relative;
+  margin: 0 0 0 0;
+  text-transform: capitalize;
+  clear: both;
+  padding: 0;   
+}
+
+#my-interviews{
+  box-shadow:0px 6px 4px -3px #bbbbbb inset;  
+}
+
+#my-interviews:hover, #my-interviews:active, #my-interviews:visited, 
+#new-interview:hover, #new-interview:active, #new-interview:visited{
+ background-color: gainsboro;   
+}
+
+#content {
+    background-color:aquamarine;
+    width: 100%;
+    height: 200px;     
+}     
+
+
+@media (min-width: 768px) {  
+  
+  #sidebar{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    width: 20%;
+    height: 100%;    
+  }
+
+ .logo{
+    display: block;   
+    margin-left: auto;
+    margin-right: auto;        
+    max-width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);    
+  }
+
+  #logo-base{
+    background-color: #D4E157;
+    padding: none;   
+    height:22%;
+  }
+
+#my-interviews, #new-interview{ 
+    font-size: 120%;  
+  }
+
+
+}
+
+
+
+/**
+ * Content CSS
+ */
+@media (min-width: 768px) {
+  
+  #content {         
+    width: 80%;
+    height: 100%;
+    position: relative;
+    float: right;
+    background-color: #d5f1f1;
+    
+
+  }
+}
