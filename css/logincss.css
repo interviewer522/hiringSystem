@@ -23,7 +23,7 @@ h3{
 	background-color: #FFFDE7;
 	margin-top: 30%;
 	margin-left: 10%;
-	}
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.26), 0 1px 4px 0 rgba(0, 0, 0, 0.05);	}
 .mui-appbar{
 	background-color: #CDDC39;
 	height: 25%;
@@ -46,6 +46,9 @@ h3{
 .mui-textfield{
 	width: 85%;
 	height: 25px;
+}
+.mui-textfield input:focus {
+	border-bottom-color :#b9c53a;
 }
 .mui-btn, .mui-btn--raised{
 	margin-left: 50%;
