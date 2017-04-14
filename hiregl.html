@@ -18,6 +18,19 @@
   </head>
 
   <body class="body">
+    <!-- error modal window -->
+    <div id="error-modal" class="error-modal">
+      <div class="modal-warning">
+        <div id="error-modal-head" class="mui-appbar">
+          <label class="warning">Warning</label>
+          <span class="close-modal">&times;</span> 
+        </div>     
+        <div class="mui-textfield">
+          <label id="warning-message"></label>
+          <button id="button-warning" class="mui-btn mui-btn--small mui-btn--raised">OK</button>         
+        </div>
+      </div>
+    </div>    
     <!-- sidebar -->
     <div id="sidebar">
       <div id="logo-base" class="mui-panel">        
@@ -34,8 +47,11 @@
       <div id="content-header"> 
         <div id="tab-heading"><label id="sub-heading"></label></div>
         <div id="user">
-        <div id="current-user"></div>
-        <div id="arrow"><i id="arrow-right" class="mdi mdi-arrow-right mdi-24px"></i> </div>      
+        <img id="photo" src="photoUrl">
+        <div id="current-user">
+          <p id="current-name"></p>
+        </div>
+        <div id="arrow"><i id="arrow-right" data="#error-modal" class="mdi mdi-arrow-right mdi-24px"></i> </div>      
         </div>         
       </div>
       <div id="main-content">
@@ -91,7 +107,7 @@
             <label class="error-empty" id="error-incorrect"></label> 
           </div>
           <div class="mui-select">
-            <select id="select-position" class="select">
+            <select id="select-position" data="#error-modal" class="select">
               <option value="">Choose position</option>              
             </select>
             <label>Position</label>
@@ -106,31 +122,31 @@
           <legend id="legend">INTERVIEW</legend>          
           <div class="mui-divider"></div>
           <div class="mui-textfield">
-            <input type="text" placeholder="Enter date" required>
+            <input id="date" type="text" placeholder="Enter date" required>
             <label>Date</label>
             <label class="error-empty" id="error-incorrect"></label>
           </div>
           <div class="mui-textfield">
-            <input type="text" placeholder="Enter time" required>
+            <input id="date" type="text" placeholder="Enter time" required>
             <label>Time</label>
             <label class="error-empty" id="error-incorrect"></label>
           </div>
           <div class="mui-select">
-            <select id="select-loc" class="select">
+            <select id="select-loc" data="#error-modal" class="select">
               <option value="">Choose Location</option>                            
             </select>
             <label id="label">Location</label>
             <label class="error-empty" id="error-incorrect"></label>
           </div>
           <div class="mui-select">
-            <select class="select">
-              <option id="select-room" value="">Choose room</option>                            
+            <select id="select-room" data="#error-modal" class="select">
+              <option value="">Choose room</option>                            
             </select>
             <label>Room</label>
             <label class="error-empty" id="error-incorrect"></label>
           </div>
           <div class="mui-select">
-            <select class="select">
+            <select id="select-person" data="#error-modal" class="select">
               <option  value="">Choose person</option>                            
             </select>
             <label>Assigned Person</label>
@@ -150,7 +166,7 @@
       <div id="content-footer">
         <button id="close-interview" class="mui-btn mui-btn--small mui-btn--raised">Close Interview</button>
         <button id="cancel" class="mui-btn mui-btn--small mui-btn--raised">Cancel</button>
-        <button id="save" class="mui-btn mui-btn--small mui-btn--raised">Save</button>        
+        <button id="save" data="#error-modal" class="mui-btn mui-btn--small mui-btn--raised">Save</button>        
       </div>
 
 

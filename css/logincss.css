@@ -50,10 +50,28 @@ h3{
 .mui-textfield input:focus {
 	border-bottom-color :#b9c53a;
 }
-.mui-btn, .mui-btn--raised{
-	margin-left: 50%;
-	margin-top: 15%;
+.mui-textfield .error-empty {
+  color: #f30606;
+  text-align: start;
+  margin-top: 115px;
+  font-family: 'Raleway', sans-serif;  
+  font-weight: 500;
+  font-size: 85%;
+
+}
+.mui-col-xs-6 {
+	padding: 0;
+	line-height:normal;
+	width: 64%;
+}
+.mui-btn--raised{	
 	background-color: #CDDC39;
+	margin-top: 55px;	
+	position: absolute;
+	padding: 0 1px;	
+	margin-left: 41%;
+	font-size: 85%;
+	width: 18%;	
 }
 .line{
 	width: 84%;
@@ -65,13 +83,7 @@ h3{
 	margin-top: 10%;
 	color: grey;
 }
-.btn{
-	margin-left: 25%;
-	margin-top: 11%;
-	margin-right: 37%;
-	margin-bottom: 7%;
-	float: right;
-}
+
 @media only screen and (min-width: 768px){
 
 .login{
@@ -81,11 +93,13 @@ h3{
 	margin-right: 30%;
 	margin-top: 7%;
 	}
-.btn{
-	margin-left: 40%;
-	margin-top: 6%;
-	margin-right: 28%;
-	margin-bottom: 15%;
+
+.mui-btn--raised{	
+	margin-left: 15%;
+	font-size: 100%;
+	width: 7.2%;
+	padding: 0;
 }
+
 
 }

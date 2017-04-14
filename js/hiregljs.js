@@ -4,20 +4,22 @@ $(document).ready(function() {
   lastName=localStorage.getItem("lastName");
   photoUrl=localStorage.getItem("photoUrl");
   token="Bearer "+localStorage.getItem("token"); 
-
-  getLocations();
+  $("#photo").append(photoUrl);
+  $("#current-name").append(firstName+" "+lastName);   
+  getLocations();  
   getPositions();
+  getAssignedPersons();
 
   //login via button
   $("#button-login").click(function(e) {
-    e.preventDefault();
+    e.preventDefault();    
     var userName = $("#username").val();
-    var password = $("#password").val();
-    //call the verify function
+    var password = $("#password").val();   
+    //call of the verify function
     verify(userName, password);
+   // $("#current-name").append(firstName+" "+lastName);    
   });
-
-  //logout button
+  //logout via arrow icon
   $("#arrow-right").click(function () {
     logout();
   });
@@ -28,7 +30,11 @@ $(document).ready(function() {
   //new interview button
   $("#new-interview").click(function(){
     $("#sub-heading").text("New Interview");    
-  }); 
+  });
+  //on click to rooms selector
+  $("#select-room").on("click", function() {
+    getRooms();     
+  });
   //toggling between my interviews and new interview buttons
   $("#side-bottom-bar > a").click(function() {
     var x = $(this).index();
@@ -36,8 +42,11 @@ $(document).ready(function() {
     $("#content-footer, #tab-interview, #tab-candidate").toggle(x===1);
   });
   //closing of modal window
-  $("#closeIcon").click(function(){
+  $("#closeIcon").click(function() {
     $(".modal").hide();
+  });
+  $("#save").click(function(){
+    newInterview();
   });
   //login verify function for verification of login name and password
   function verify(userName, password) {
@@ -45,9 +54,7 @@ $(document).ready(function() {
       url: "http://localhost:8081/api/auth/login",
       type: "POST",
       dataType: "json",
-      contentType: "application/json",
-      async: false,
-      //json object to be sent to the authentication url
+      contentType: "application/json",           
       data: JSON.stringify({
               "userName": userName,
               "password": password
@@ -60,11 +67,11 @@ $(document).ready(function() {
         localStorage.setItem("token", data.token);
         window.location.href = "hiregl.html";
       },
-      error: function(){
-        alert("nefunguje");
+      error: function() {        
+        $("#error-incorrect").text("Invalid username or password. Please try again.");      
       }
-    });
-  }
+    }); 
+  } 
   //logout function
   function logout() {
     $.ajax({
@@ -72,16 +79,20 @@ $(document).ready(function() {
         xhr.setRequestHeader("Authorization", token);
       },
       url: "http://localhost:8081/api/auth/logout",
-      type: "POST",
-      async: false,
+      type: "POST",      
       success: function() {        
         window.location.href = "login.html";
       },
-      error: function(){
-        alert("nefunguje "+token);
-      }
+      error: function() {
+        $("#warning-message").text("Error logging out.");
+        var warningMessage = $("#arrow-right").attr("data");
+        $(warningMessage).show();
+        $(warningMessage).find(".close-modal, #button-warning").click(function(){
+          $(warningMessage).hide(); 
+        });            
+      } 
     });
-  }  
+  } 
   //get locations function
   function getLocations() {
     $.ajax({
@@ -91,19 +102,23 @@ $(document).ready(function() {
       url: "http://localhost:8081/api/locations",
       type: "GET",
       dataType: "json",
-      contentType: "application/json",      
-      //json object to be sent to the authentication url
+      contentType: "application/json",       
       success: function(data) {        
         for (i in data) {      
           $("#select-loc").append("<option>"+data[i]+"</option>");
-        }        
+        }                     
       },
-      error: function(){
-        alert("Neviem nacitat lokacie.");
+      error: function() {
+        $("#warning-message").text("Error getting Locations.");
+        var warningMessage = $("#select-loc").attr("data");
+        $(warningMessage).show();
+        $(warningMessage).find(".close-modal, #button-warning").click(function(){
+          $(warningMessage).hide(); 
+        });                   
       }
     });
   }
-  //get locations function
+  //get positions function
   function getPositions() {
     $.ajax({
       beforeSend: function(xhr) {
@@ -113,17 +128,74 @@ $(document).ready(function() {
       type: "GET",
       dataType: "json",
       contentType: "application/json",      
-      //json object to be sent to the authentication url
       success: function(data) {        
         for (i in data) {                
           $("#select-position").append("<option>"+data[i]+"</option>");
         }        
       },
-      error: function(){
-        alert("Neviem nacitat rooms");
+      error: function() {
+        $("#warning-message").text("Error getting Positions.");
+        var warningMessage = $("#select-position").attr("data");
+        $(warningMessage).show();
+        $(warningMessage).find(".close-modal, #button-warning").click(function(){
+          $(warningMessage).hide(); 
+        });           
       }
     });
   }
+  //get assigned persons function
+  function getAssignedPersons() {
+    $.ajax({
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader("Authorization", token);
+      },
+      url: "http://localhost:8081/api/users",
+      type: "GET",
+      dataType: "json",
+      contentType: "application/json",      
+      success: function(data) {        
+        for (i in data) {                
+          $("#select-person").append("<option>"+data[i].firstName+" "+data[i].lastName+"</option>");
+        }        
+      },
+      error: function() {
+        $("#warning-message").text("Error getting Assigned persons.");
+        var warningMessage = $("#select-person").attr("data");
+        $(warningMessage).show();
+        $(warningMessage).find(".close-modal, #button-warning").click(function(){
+          $(warningMessage).hide(); 
+        });    
+            
+      }
+    });
+  }
+  //get rooms
+  function getRooms() {
+    var location = $("#select-loc option:selected").text();
+    $.ajax({
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader("Authorization", token);
+      },
+      url: "http://localhost:8081/api/locations/"+location+"/rooms",
+      type: "GET",
+      dataType: "json",
+      contentType: "application/json",      
+      success: function(data) {        
+        for (i in data){                
+          $("#select-room").append("<option>"+data[i]+"</option>");
+        }        
+      },
+      error: function() {   
+      $("#warning-message").text("Error getting Rooms.");
+        var warningMessage = $("#select-room").attr("data");
+        $(warningMessage).show();
+        $(warningMessage).find(".close-modal, #button-warning").click(function(){
+          $(warningMessage).hide(); 
+        });         
+          
+      }
+    });
+  }
+ 
 
 });
-

@@ -88,24 +88,28 @@
 }
 
 #current-user {
-  position: absolute;  
-  margin-top: 3px; 
+  color: rgba(115, 115, 115, 0.88);
+  position: absolute;
+  margin-top: 14px;
   margin left: 2%;
-  width: 60%;
+  width: 80%;
   height:80%;
+  text-align: end;
+  font-size: 90%;
+  font-weight: bold
 }
 
 #arrow {  
-  margin-top: 5px;  
-  margin-left: 68%;  
+  margin-top: 5px;
+  margin-left: 75%;
   height: 62%;
-  width: 30%;
-  position:  absolute;  
+  width: 10%;
+  position: absolute;    
 }
 
 #arrow-right {
   color: rgba(115, 115, 115, 0.88); 
-  margin-left: 60%;
+  margin-left: 70%;
   cursor: pointer;
 }
 /*main content - mobile media*/
@@ -341,7 +345,7 @@ tr{
   }
 
   #current-user {  
-    width: 65%;  
+    width: 81%;  
   }
   
   #arrow {
@@ -420,18 +424,89 @@ tr{
 
   #close-interview{
     width:180px;
-    background-color: #D4E157;
-    
-  }
-
-
-
-
-    
+    background-color: #D4E157;    
+  }    
 
   }
 
+/* Error Modal Window */
+.error-modal {
+  background-color: rgba(53, 53, 53, 0.2);
+  width: 100%;
+  height: 100%;
+  position:fixed;
+  z-index: 50;
+  display: none;
+}
+
+.modal-warning{
+  max-width: 410px;
+  width: 80%;
+  height: 150px;
+  border-radius: 7px;
+  background-color: #FFFDE7;
+  margin: 190px auto;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.26), 0 1px 4px 0 rgba(0, 0, 0, 0.05); 
+}
+
+#error-modal-head {
+  background-color: #CDDC39;
+  min-height: 28px;
+  height: 5%;
+  border-radius: 7px 7px 0 0;
+}
+
+.warning {
+  position: absolute; 
+  margin-left: 10px;
+  margin-top: 3px;
+  color: #5d5c5c;
+}
+
+.close-modal {
+  position: relative;
+  float: right;
+  margin-top: -2px;
+  margin-right: 8px;
+  font-size: 180%;
+  color: #5d5c5c;
+  cursor: pointer;
+}
+
+#warning-message {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 90%;
+  height: 40%;
+  overflow-wrap: normal !important;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #5d5c5c !important;
+}
+
+#button-warning {
+  margin-top: 60px;
+  width: 30%;
+  margin-left: 36.3%;
+  margin-right: 35%;
+  background-color: #CDDC39;
+  color: #5d5c5c;  
+}
 
 
+@media only screen and (min-width: 768px){
 
+.login{
+  min-width: 410px;
+  margin-top: 210px;  
+}
 
+.warning {
+  font-size: 120%;
+}
+
+#warning-message {  
+  font-size: 110%;
+}
+
+}
