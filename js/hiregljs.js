@@ -4,8 +4,10 @@ $(document).ready(function() {
   lastName=localStorage.getItem("lastName");
   photoUrl=localStorage.getItem("photoUrl");
   token="Bearer "+localStorage.getItem("token"); 
-  $("#photo").append(photoUrl);
-  $("#current-name").append(firstName+" "+lastName);   
+
+  $("#current-name").append(firstName+" "+lastName);
+  $("#user").show(photoUrl);
+
   getLocations();  
   getPositions();
   getAssignedPersons();
@@ -14,10 +16,9 @@ $(document).ready(function() {
   $("#button-login").click(function(e) {
     e.preventDefault();    
     var userName = $("#username").val();
-    var password = $("#password").val();   
+    var password = $("#password").val();    
     //call of the verify function
-    verify(userName, password);
-   // $("#current-name").append(firstName+" "+lastName);    
+    verify(userName, password);    
   });
   //logout via arrow icon
   $("#arrow-right").click(function () {
@@ -45,9 +46,25 @@ $(document).ready(function() {
   $("#closeIcon").click(function() {
     $(".modal").hide();
   });
+  //datepicker and timepicker inputs trigger
+  $("input.datepicker" ).datepicker({dateFormat: "d.m.yy"});  
+  $("input.timepicker").timepicker({timeFormat: "HH:mm"}); 
+  //save interview button action  
   $("#save").click(function(){
     newInterview();
+    $("#input-name").val("");
+    $("#input-surname").val("");
+    $("#input-phone").val("");
+    $("#input-email").val("");
+    $("#input-skype").val("");
+    $("#select-position").val("");
+    $("#date").val("");
+    $("#time").val("");
+    $("#select-loc").val("");
+    $("#select-room").val("");
+    $("#select-person").val("");
   });
+  
   //login verify function for verification of login name and password
   function verify(userName, password) {
     $.ajax({
@@ -164,8 +181,7 @@ $(document).ready(function() {
         $(warningMessage).show();
         $(warningMessage).find(".close-modal, #button-warning").click(function(){
           $(warningMessage).hide(); 
-        });    
-            
+        });           
       }
     });
   }
@@ -181,7 +197,7 @@ $(document).ready(function() {
       dataType: "json",
       contentType: "application/json",      
       success: function(data) {        
-        for (i in data){                
+        for (i in data) {                
           $("#select-room").append("<option>"+data[i]+"</option>");
         }        
       },
@@ -191,11 +207,84 @@ $(document).ready(function() {
         $(warningMessage).show();
         $(warningMessage).find(".close-modal, #button-warning").click(function(){
           $(warningMessage).hide(); 
-        });         
-          
+        });           
       }
     });
   }
- 
+  //create and post new interview
+  function newInterview() {
+        var datetime = convertDateTimeFormat();        
+        var assPersonId = getUserId();
+        var candidate = {
+          firstName: $("#input-name").val(),
+          lastName: $("#input-surname").val(),
+          phone: $("#input-phone").val(),
+          skype: $("#input-skype").val(),
+          email: $("#input-email").val(),
+          position: $("#select-position option:selected").text().toUpperCase()
+        };
+        var interview = {
+          location: $("#select-loc option:selected").text().toUpperCase(),
+          room: $("#select-room option:selected").text().toUpperCase(),
+          dateTime: datetime,
+          userId: assPersonId 
+        };
+        $.ajax({
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader("Authorization", token);
+      },
+      url: "http://localhost:8081/api/interviews",
+      type: "POST",
+      dataType: "json",
+      contentType: "application/json", 
+      data: JSON.stringify({
+        "candidate": candidate,
+        "interview": interview
+      }),     
+      success: function(data) {        
+        alert("posielam interview");
+        console.log(data);
+                
+      },
+      error: function(){
+        $("#warning-message").text("Error posting new interview.");
+        var warningMessage = $("#save").attr("data");
+        $(warningMessage).show();
+        $(warningMessage).find(".close-modal, #button-warning").click(function(){
+          $(warningMessage).hide(); 
+        }); 
+      }
+    });       
+  }
+  function convertDateTimeFormat() {    
+    var date = $("#date").val();
+    var time = $("#time").val();
+    var splitDate = date.split(/\D/);      
+    var newDate = splitDate.reverse().join("-"); 
+    return (newDate+"T"+time+"Z");       
+  } 
+  function getUserId() {
+    var currentUser = "";
+    $("#select-person").each(function() {
+      if ($(this).val() == "First User") {
+        currentUser = 1;
+      }
+      else if ($(this).val() == "Second User") {
+        currentUser = 2;
+      }
+      else if ($(this).val() == "Third User") {
+        currentUser = 3;
+      }
+      else {
+        currentUser = 4;
+      }
+    });
+    return currentUser;
+  } 
+
+
+
+
 
 });
+
